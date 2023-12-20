@@ -1,4 +1,4 @@
-package it.edu.iisgubbio.treag;
+package it.edu.iisgubbio.trhead;
 
 /**
  * Un thread in java può essere realizzato in vari modi:

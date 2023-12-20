@@ -15,6 +15,11 @@ public class Priorità {
 	int servizio[];
 	int arrivo[];
 	
+	/**
+	 * Create all the vector that we will use,fill arrivo 
+	 * @param x Vector Size
+	 * @return Void
+	 */
 	public Priorità(int x) {
 		lProcessi = new String[x];
 		tempi = new int[x];
@@ -26,6 +31,11 @@ public class Priorità {
 			arrivo[i]=i;
 		}
 	}
+	/**
+	 * Add new Process
+	 * @param x Process Name, y Execution Time, z Priority
+	 * @return Void
+	 */
 	public void add(String x, int y,int z) {
 		lProcessi[processi]=x;
 		tempi[tempoEsecuzione]=y;
@@ -34,6 +44,12 @@ public class Priorità {
 		processi++;
 		tempoEsecuzione++;
 	}
+	
+	/**
+	 * Calculate Avarage Waiting Time ordering by priority
+	 * @param Nothing
+	 * @return Avarage Waiting Time
+	 */
 	public double ordina() {
 		Collections.sort(prioritàOrdinati);
 		for(int c=3;c>=0;c--) {
@@ -49,17 +65,20 @@ public class Priorità {
 		
 		servizio[0]=0;
 		for(int i=1;i<lProcessi.length ;i++) {
-			if(servizio[i-1]+tempiOrdinati.get(i-1)>=0) {
 				servizio[i]=servizio[i-1]+tempiOrdinati.get(i-1);
-			}else {
-				servizio[i]=0;
-
-			}
 		}
+
+			System.out.println(tempiOrdinati);
+			System.out.println(arriviOrdinati);
+
+
 		double media=0;
 		for(int i=0;i<lProcessi.length;i++) {
-				media=media+servizio[i]-arriviOrdinati.get(i);
-			
+			if(servizio[i]-arriviOrdinati.get(i)>=0) {
+				media=media+(servizio[i]-arriviOrdinati.get(i));
+			}else {
+				media=media+0;
+			}
 		}
 		return media/lProcessi.length;
 	}

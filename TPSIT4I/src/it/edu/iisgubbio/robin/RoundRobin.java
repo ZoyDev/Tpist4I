@@ -14,6 +14,12 @@ public class RoundRobin {
 	int servizio1[];
 	int arrivo[];
 	int quanto=0;
+	
+	/**
+	 * Create all the vector that we will use,fill arrivo 
+	 * @param x Vector Size,y Quanto di Tempo
+	 * @return Void
+	 */
 	public RoundRobin(int x,int y) {
 		quanto=y;
 		lProcessi = new String[x];
@@ -25,12 +31,22 @@ public class RoundRobin {
 			arrivo[i]=i;
 		}
 	}
+	/**
+	 * Add new Process
+	 * @param x Process Name, y Execution Time
+	 * @return Void
+	 */
 	public void add(String x, int y) {
 		lProcessi[processi]=x;
 		tempi[tempoEsecuzione]=y;
 		processi++;
 		tempoEsecuzione++;
 	}
+	/**
+	 * Control if we end the operations
+	 * @param None
+	 * @return Boolean finito
+	 */
 	public boolean fine() {
 		boolean finito=true;
 		for(int i=0;i<tempi.length;i++) {
@@ -40,6 +56,7 @@ public class RoundRobin {
 		}
 		return finito;
 	}
+	
 	public double ordina() {
 		servizio.add(0);
 		double media=0;

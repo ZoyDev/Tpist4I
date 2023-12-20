@@ -22,7 +22,6 @@ public class GrafiDiHolt extends Application{
 			output.setText(output.getText()+grafo.grafo[0][i]+" "+grafo.grafo[1][i]+" "+grafo.grafo[2][i]+"\n");
 		}
 		test.setOnAction(e->esegui());
-		riduc.setOnAction(e->riduci());
 		GridPane principale = new GridPane();
 		principale.add(input, 0, 0);
 		principale.add(riduc,0,1,2,1);
@@ -43,16 +42,7 @@ public class GrafiDiHolt extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
-	public void isRiducibile() {
-		System.out.println(grafo.isRiducibile());
-	}
-	public void riduci() {
-		grafo.riduci();
-		output.setText("");
-		for(int i=0;i<grafo.processi;i++) {
-			output.setText(output.getText()+grafo.grafo[0][i]+" "+grafo.grafo[1][i]+" "+grafo.grafo[2][i]+"\n");
-		}
-	}
+	
 	public void esegui() {
 		output.setText("");
 		String istruzioni[]= input.getText().split(" ");

@@ -9,10 +9,5 @@ public class Prova {
 			scheduler.add("2",8);
 			scheduler.add("3",6);
 			System.out.println("Il valore medio del tempo di attesa è: "+scheduler.ordina());			
-			System.out.println(scheduler.servizio);
-			
-
-
-	   }
-	   
+	   } 
 }

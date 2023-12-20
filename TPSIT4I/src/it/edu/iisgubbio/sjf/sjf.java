@@ -12,6 +12,11 @@ public class sjf {
 	int servizio[];
 	int arrivo[];
 	
+	/**
+	 * Create all the vector that we will use,fill arrivo 
+	 * @param x Vector Size
+	 * @return Void
+	 */
 	public sjf(int x) {
 		lProcessi = new String[x];
 		tempi = new int[x];
@@ -22,6 +27,11 @@ public class sjf {
 			arrivo[i]=i;
 		}
 	}
+	/**
+	 * Add new Process
+	 * @param x Process Name, y Execution Time
+	 * @return Void
+	 */
 	public void add(String x, int y) {
 		lProcessi[processi]=x;
 		tempi[tempoEsecuzione]=y;
@@ -29,6 +39,11 @@ public class sjf {
 		processi++;
 		tempoEsecuzione++;
 	}
+	/**
+	 * Calculate Avarage Waiting Time ordering execution times
+	 * @param Nothing
+	 * @return Avarage Waiting Time
+	 */
 	public double ordina() {
 		Collections.sort(tempiOrdinati);
 		for(int c=0;c<4;c++) {

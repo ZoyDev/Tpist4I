@@ -1,4 +1,4 @@
-package it.edu.iisgubbio.treag;
+package it.edu.iisgubbio.trhead;
 
 /**
  * Lanciare due thread uno che scrive 
@@ -23,12 +23,27 @@ public class Conta extends Thread{
 	public Conta(int type) {
 		typeThread=type;
 	}
+	public void stopRunning(int x) {
+		if(x==5) {
+			stop();
+		}
+	}
 	public void run() {
+		try {
+			sleep(500);
+		}catch (InterruptedException e) {
+			System.out.println("ERRORE");		
+		}
 		if(typeThread==0) {
-			System.out.println("Primo");
+		for(int i=0;i<10;i++) {
+			System.out.println(i);
+			this.stopRunning(i);
+		}
 
 		}else {
-			System.out.println("Secondo");
+			for(int i=50;i<=100;i++) {
+				System.out.println(i);
+			}
 		}
 	}
 	

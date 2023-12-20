@@ -9,8 +9,8 @@ public class fcfs {
 	int arrivo[];
 	
 	/**
-	 * Crea tutti i vettori da usare
-	 * @param x Grandeza Vettore
+	 * Create all the vector that we will use,fill arrivo 
+	 * @param x Vector Size
 	 * @return Void
 	 */
 	public fcfs(int x) {
@@ -23,13 +23,23 @@ public class fcfs {
 			arrivo[i]=i;
 		}
 	}
-	
+	/**
+	 * Add new Process
+	 * @param x Process Name, y Execution Time
+	 * @return Void
+	 */
 	public void add(String x, int y) {
 		lProcessi[processi]=x;
 		tempi[tempoEsecuzione]=y;
 		processi++;
 		tempoEsecuzione++;
 	}
+	
+	/**
+	 * Calculate Avarage Waiting Time
+	 * @param Nothing
+	 * @return Avarage Waiting Time
+	 */
 	public double calcola() {
 		servizio[0]=0;
 		for(int i=1;i<lProcessi.length ;i++) {

@@ -4,6 +4,11 @@ public class Grafi {
 	int processi,risorse;
 	int grafo[][];
 	
+	/**
+	 * Create grafi,fill grafo, we will know how much process and resources we will have 
+	 * @param x Resources number, y Process number
+	 * @return Void
+	 */
 	public Grafi(int x, int y) {
 		risorse=x;
 		processi=y;
@@ -14,6 +19,12 @@ public class Grafi {
 			}
 		}
 	}
+	
+	/**
+	 * Assign a resource to a process
+	 * @param processo Process, risorsa Resource
+	 * @return Void
+	 */
 	public void in (int processo, int risorsa) {
 		boolean preso=false;
 		for(int i=0;i<processi;i++) {
@@ -28,42 +39,4 @@ public class Grafi {
 		}
 		
 	}
-	private void azzera(int x) {
-		for(int i=0;i<risorse;i++) {
-			grafo[x][i]=0;
-		}
-	}
-	public void riduci() {
-		if(isRiducibile()) {
-			boolean riducibile=false;
-			int c,i;
-			for(i=0;i<risorse;i++) {
-				riducibile=true;
-				for(c=0;c<processi;c++) {
-					if(grafo[i][c]==2) {
-						riducibile=false;
-					}
-				}
-				if(riducibile) {
-					azzera(i);
-				}
-			}
-		}
-	}
-	public boolean isRiducibile() {
-		boolean riducibile=false;
-		for(int i=0;i<risorse;i++) {
-			riducibile=true;
-			for(int c=0;c<processi;c++) {
-				if(grafo[i][c]==2) {
-					riducibile=false;
-				}
-			}
-			if(riducibile) {
-				break;
-			}
-		}
-		return riducibile;
-	}
-	
 }
