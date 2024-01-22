@@ -15,7 +15,7 @@ public class HelloThreads extends Thread{
 		
 		HelloThreads t= new HelloThreads();
 		t.start();
-	}
+	} 
 	
 	public void run() {
 		System.out.println("Hello from a thread");
