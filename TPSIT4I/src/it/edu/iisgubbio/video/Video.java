@@ -42,7 +42,7 @@ public class Video {
 		Collections.shuffle(esec);
 		for(int i=0;i<esec.size();i++) {
 				if(esec.get(i).equals(esec.get(i+1))) {
-					Collections.swap(esec, i+1 , random.nextInt(esec.size() - i ));
+					Collections.swap(esec, i+1 , random.nextInt(esec.size() - i )+i);
 					i=i-1;
 				}else {
 					System.out.println(esec.get(i));
