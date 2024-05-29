@@ -2,17 +2,17 @@ package macchinetta;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Macchinetta {
+public class Macchinetta{
 	
 	Boolean admin=false;
 	Boolean owner=false;
 	Boolean user=false;
 	Double moneyIn=0.0;
 	ArrayList<Products> products = new ArrayList<Products>();
-	
 	public void readProducts() {
 		BufferedReader lettoreDiRighe;
 		FileReader flussoCaratteri;
@@ -26,8 +26,7 @@ public class Macchinetta {
 					String testo[]=read.split(",");
 					double price=Double.parseDouble(testo[1]); 
 					int q=Integer.parseInt(testo[2]); 
-					int id=Integer.parseInt(testo[2]); 
-					products.add(new Products(testo[0],price,q,id));
+					products.add(new Products(testo[0],price,q));
 				}
 			}
 			lettoreDiRighe.close();
@@ -73,12 +72,38 @@ public class Macchinetta {
 			owner=true;
 		}
 		
+	} 
+	public void addProduct(String name,double price,int quantity) {
+		String testo="Questa è una riga";
+		try {
+			FileWriter flussoCaratteri = new FileWriter("/Users/classe4I/Desktop/WorkSpaceTPSIT/Tpsit/src/macchinetta/products.txt");
+			for(int i=0;i<products.size();i++) {
+				flussoCaratteri.write(products.get(i).name+","+products.get(i).price+","+products.get(i).quantity+"\n");
+			}
+			flussoCaratteri.write(name+","+price+","+quantity);
+			flussoCaratteri.close();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
+	public void removeProduct(int id) {
+		products.remove(id);
+		String testo="Questa è una riga";
+		try {
+			FileWriter flussoCaratteri = new FileWriter("/Users/classe4I/Desktop/WorkSpaceTPSIT/Tpsit/src/macchinetta/products.txt");
+			for(int i=0;i<products.size();i++) {
+				flussoCaratteri.write(products.get(i).name+","+products.get(i).price+","+products.get(i).quantity+"\n");
+			}
+			flussoCaratteri.close();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		Macchinetta x=new Macchinetta();
 		x.readProducts();
 		x.login("user", "user");
+		x.addProduct("z", 10, 10);
 		System.out.println(x.infoProduct(4));
 		
 	}
